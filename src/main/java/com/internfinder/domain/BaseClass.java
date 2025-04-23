@@ -2,8 +2,13 @@ package com.internfinder.domain;
 
 import com.internfinder.enums.EntityStatus;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -24,6 +29,7 @@ public class BaseClass {
     private Long id;
 
     @CreatedDate
+    @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
@@ -32,6 +38,7 @@ public class BaseClass {
     private UUID createdBy;
 
     @LastModifiedDate
+    @UpdateTimestamp
     private LocalDateTime updatedAt;
 
     @LastModifiedBy
